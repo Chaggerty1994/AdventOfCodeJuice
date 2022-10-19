@@ -12,6 +12,7 @@ input_one = pathlib.Path('step_one.txt').read_text().rstrip()
 input_two = pathlib.Path('step_two.txt').read_text().rstrip()
 
 # turning that string into a list of strings
+# removing the empty string at the end of the list with split
 
 lines = input_two.rstrip().split('\n')
 
