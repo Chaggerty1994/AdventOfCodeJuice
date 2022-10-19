@@ -1,4 +1,4 @@
-
+from more_itertools import pairwise
 import pathlib
 
 
@@ -7,18 +7,22 @@ import pathlib
 # its value to the given input data
 # the result is a string
 
-input = pathlib.Path('step_one.txt').read_text().rstrip()
+input_one = pathlib.Path('step_one.txt').read_text().rstrip()
 
-print(input)
+input_two = pathlib.Path('step_two.txt').read_text().rstrip()
 
 # turning that string into a list of strings
 
-lines = input.rstrip().split('\n')
+lines = input_two.rstrip().split('\n')
+
 
 # converting the list of numbers as strings to a list of integers
 lines_to_numbers = [int(line) for line in lines]
 
-print(lines_to_numbers)
+# using pairwise to divide the list into pairs
+# iterate the list of pairs
+# if b is greater than a return true, else false
+depth_increases = [b > a for a, b in pairwise(lines_to_numbers)]
 
-# for a, b in permutations(lines_to_numbers)
-
+# count the number of true booleans in depth_increases
+print(sum(depth_increases))
